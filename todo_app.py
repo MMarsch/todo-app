@@ -26,7 +26,8 @@ root.title("Todo List")
 
 # database functions
 
-def insert_task(task):  # auxiliary function to add the task in the database
+# auxiliary function to add the task in the database
+def insert_task(task):
     with conn:
         c.execute("INSERT INTO tasks VALUES (:task)", {'task': task})
 
@@ -37,7 +38,9 @@ def remove_task(to_be_deleted):
 
 
 # functions
-def add_task():  # adding a task to the database and immediately show it in the listboxes
+
+# adding a task to the database and immediately show it in the listboxes
+def add_task():
     task = entry_task.get()
     c.execute("SELECT task FROM tasks")
     if task != "":
@@ -48,7 +51,8 @@ def add_task():  # adding a task to the database and immediately show it in the 
         tkinter.messagebox.showwarning(title="Warning!", message="You must enter a task.")
 
 
-def delete_task():  # deleting a task from the database and immediately refresh the listboxes
+# deleting a task from the database and immediately refresh the listboxes
+def delete_task():
     try:
         rowid_value = listbox_id.get(listbox_tasks.curselection()[0])
         remove_task(rowid_value)
@@ -57,7 +61,8 @@ def delete_task():  # deleting a task from the database and immediately refresh 
         tkinter.messagebox.showwarning(title="Warning!", message="You must select a task.")
 
 
-def load_tasks(): #loading all tasks from the database into the listboxes
+# loading all tasks from the database into the listboxes
+def load_tasks():
     try:
         listbox_tasks.delete(0, tkinter.END)
         listbox_id.delete(0, tkinter.END)
@@ -71,6 +76,7 @@ def load_tasks(): #loading all tasks from the database into the listboxes
 
 
 # GUI
+
 frame_tasks = tkinter.Frame(root)
 frame_tasks.pack()
 
