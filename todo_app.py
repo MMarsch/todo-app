@@ -95,10 +95,9 @@ button_add_task.pack()
 button_delete_task = tkinter.Button(root, text="Delete task", width=48, command=delete_task)
 button_delete_task.pack()
 
-button_load_tasks = tkinter.Button(root, text="Load tasks", width=48,
-                                   command=load_tasks)  # needs change-->probably delete
-button_load_tasks.pack()
 
+
+load_tasks()
 root.mainloop()
 
 conn.close()
